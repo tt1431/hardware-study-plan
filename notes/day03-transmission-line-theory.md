@@ -116,10 +116,10 @@ $$
 信号在传输线中以**不到光速**传播。速度由周围介质的介电常数决定：
 
 $$
-v_p = \frac{c}{\sqrt{\varepsilon_r}}
+v_p = \frac{c}{\sqrt{\epsilon_r}}
 $$
 
-FR4 的 $\varepsilon_r \approx 4.2$：
+FR4 的 $\epsilon_r \approx 4.2$：
 
 $$
 v_p \approx \frac{3\times10^8}{\sqrt{4.2}} \approx 1.46 \times 10^8 \text{ m/s} \approx 14.6 \text{ cm/ns}
@@ -128,7 +128,7 @@ $$
 工程上常用 **传播延迟** $t_{pd}$（每单位长度的延迟）：
 
 $$
-t_{pd} = \frac{1}{v_p} \approx \frac{\sqrt{\varepsilon_r}}{c}
+t_{pd} = \frac{1}{v_p} \approx \frac{\sqrt{\epsilon_r}}{c}
 $$
 
 FR4 微带线：$t_{pd} \approx 5.5 \sim 6.5 \text{ ps/mm}$（视有效介电常数而定）
@@ -302,14 +302,14 @@ Day 1 §1.6 简单提了"时钟走内层"的好处，这里讲物理本质。
 
 ### 微带线 (Microstrip)
 - 走线在 PCB **表层**，下面一个参考平面
-- 电磁场：一部分在 FR4 里（$\varepsilon_r \approx 4.2），一部分在空气里（\varepsilon_r \approx 1$）。
-- **有效介电常数** $1 < \varepsilon_{r,eff} < 4.2，常用近似值 \varepsilon_{r,eff} \approx (\varepsilon_r + 1)/2 \approx 2.6$。
-- 传播速度：$v_p = c/\sqrt{\varepsilon_{r,eff}}$，比带状线快
+- 电磁场：一部分在 FR4 里（$\epsilon_r \approx 4.2，一部分在空气里（\epsilon_r \approx 1$）。
+- **有效介电常数** $1 < \epsilon_{\text{eff}} < 4.2，常用近似值 \epsilon_{\text{eff}} \approx (\epsilon_r + 1)/2 \approx 2.6$。
+- 传播速度：$v_p = c/\sqrt{\epsilon_{\text{eff}}}$，比带状线快
 
 ### 带状线 (Stripline)
 - 走线在 PCB **内层**，上下各一个参考平面
 - 电磁场**全部**在 FR4 介质中
-- 有效介电常数 $= \varepsilon_r \approx 4.2$。
+- 有效介电常数 $= \epsilon_r \approx 4.2$。
 - 传播速度更慢，但信号质量更好
 
 ### 3.7.2 关键区别
@@ -374,14 +374,14 @@ TDR 是测量传输线阻抗沿长度分布的仪器。
 ### 3.9.1 阻抗由什么决定（再复习）
 
 $$
-Z_0 \approx \frac{87}{\sqrt{\varepsilon_r + 1.41}} \times \ln\left(\frac{5.98 \times H}{0.8W + T}\right) \quad \text{（微带线近似公式）}
+Z_0 \approx \frac{87}{\sqrt{\epsilon_r + 1.41}} \times \ln\left(\frac{5.98 \times H}{0.8W + T}\right)
 $$
 
 | 参数变化 | $Z_0$ 变化 | 直觉 |
 |:--|:--|:--|
 | 线宽 $W \uparrow$ | $\downarrow$ | 线宽了，电容大了，阻抗低 |
 | 介质厚度 $H \uparrow$ | $\uparrow$ | 离地远了，电容小了，阻抗高 |
-| 介电常数 $\varepsilon_r \uparrow$ | $\downarrow$ | 电容大，阻抗低 |
+| 介电常数 $\epsilon_r \uparrow$ | $\downarrow$ | 电容大，阻抗低 |
 | 铜厚 $T \uparrow$ | $\downarrow$ | 影响很弱 |
 
 ### 3.9.2 叠层设计
@@ -468,7 +468,7 @@ Tr → BW（Day2）→ 高频分量在走线里的行为（Day3）→ 反射/端
 |:--|:--|:--|
 | $Z_0$ 标准 | 50Ω | 单端信号默认阻抗 |
 | $Z_{diff}$ 标准 | 100Ω | 差分信号默认阻抗 |
-| FR4 $\varepsilon_r$ | 4.0~4.5 | 阻抗/延迟计算 |
+| FR4 $\epsilon_r$ | 4.0~4.5 | 阻抗/延迟计算 |
 | FR4 微带线 $v_p$ | ~15 cm/ns | 延迟估算 |
 | FR4 微带线 $t_{pd}$ | ~5.5~6.5 ps/mm | 走线长度 → 延迟 |
 | 临界长度 | $T_r(\text{ns}) \times 2.5$ cm | 判断是否需要端接 |
