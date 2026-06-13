@@ -169,7 +169,7 @@ $$
 
 ### 步骤 2：算带宽
 
-公式 $BW = 0.5/T_r，心里过一下。T_r = 1\text{ns} \rightarrow 500\text{MHz}；$T_r = 0.3\text{ns} \rightarrow 1.7\text{GHz}$。
+公式 $BW = 0.5/T_r，心里过一下。T_r = 1\text{ns} \rightarrow 500\text{MHz}；T_r = 0.3\text{ns} \rightarrow 1.7\text{GHz}$。
 
 ### 步骤 3：判断要不要管 SI
 
