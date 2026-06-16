@@ -59,6 +59,10 @@ $$
 
 ![](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/02-square-wave-decomposition.png)
 
+**谐波数量越多，合成波形越逼近理想方波：**
+
+![](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/si_summary/02-harmonic-reconstruction.png)
+
 ---
 
 ## 2.3 频谱是什么
@@ -85,6 +89,12 @@ $$
 ### 理想方波的频谱
 
 高频段以 $-20\text{dB/dec}$ 斜率一直衰减下去。不管多高频，总有那么一点点能量。
+
+### 方波 vs 梯形波：频谱对比
+
+方波（Tr=0）的频谱在高端一直以 -20dB/dec 衰减。梯形波（Tr>0）则不同——第二个拐点之后以 -40dB/dec 加速衰减，高频分量被迅速削掉。
+
+![](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/si_summary/02-spectrum-comparison.png)
 
 ### 梯形波的频谱：两个拐点
 
@@ -151,9 +161,23 @@ $$
 | DDR4 数据线 | 0.08ns | 6.25GHz | 全程控阻抗、严格等长 |
 | PCIe 4.0 | 0.03ns | ~17GHz | 高速板材、严格损耗预算 |
 
-面试被问"信号带宽怎么算"——回答 $BW = 0.35/T_r 没错。再加一句"做 SI 设计我按 BW = 0.5/T_r$ 留裕度"，面试官就知道你是干过活的。
+面试被问"信号带宽怎么算"——回答 $BW = 0.35/T_r$ 没错。再加一句"做 SI 设计我按 $BW = 0.5/T_r$ 留裕度"，面试官就知道你是干过活的。
 
 ![](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/02-bandwidth-vs-tr.png)
+
+### $k=0.35$ 的物理来源：单极点低通滤波
+
+$k=0.35$ 来自单极点 RC 低通滤波器的 -3dB 带宽。幅频特性在截止频率后以 -20dB/dec 滚降：
+
+![](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/si_summary/02-filter-response.png)
+
+高阶系统（实际电路通常更复杂）在高频段会有更陡峭的滚降和多处衰减陷波：
+
+![](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/si_summary/02-high-order-filter.png)
+
+**工程选择：**
+- 看仪器/放大器带宽，用 $k=0.35$（近似单极点 -3dB）
+- 做高速数字 SI 设计，用 $k=0.5$（留足裕度，确保波形还原）
 
 ---
 
