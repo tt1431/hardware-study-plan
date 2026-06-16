@@ -65,6 +65,10 @@ $$
 
 ![](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/si_summary/02-harmonic-reconstruction.png)
 
+**教材原图——方波频谱的包络线（图2.8）：**
+
+![](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/si_textbook_diagrams/ch2_fig2-8_square_wave_spectrum.png)
+
 ---
 
 ## 2.3 频谱是什么
@@ -87,6 +91,10 @@ $$
 ## 2.4 理想方波 vs 真实方波
 
 现实中没有 $T_r = 0$ 的方波。真实信号是**梯形波**——上升和下降需要时间。
+
+**教材原图——梯形波频谱仿真结果（图2.17）：**
+
+![](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/si_textbook_diagrams/ch2_fig2-17_trapezoidal_spectrum.png)
 
 ### 理想方波的频谱
 
