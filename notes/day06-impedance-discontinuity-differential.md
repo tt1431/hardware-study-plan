@@ -67,7 +67,7 @@ $$ Z_0 \uparrow \quad \text{when} \quad h \uparrow $$
 
 ![图 7-3 - 参考平面掏空时阻抗随外延值变化](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/ch7_ch8/fig7-3_ref_plane_opening.png)
 
-> **图 7-3 分析**：当外延值(Ext)很小时，阻抗变化剧烈；随着 Ext 增大，阻抗趋于稳定回到 $Z_0$ 。当 Ext 达到介质厚度 $h$ 的 2~3 倍时，阻抗变化率约为 2%。
+> **读图**：微带线截面示意+Z0变化曲线。Ext很小时Z0变化剧烈；Ext>=2~3h后趋于稳定。两侧掏空比一侧掏空影响更大。
 
 ### 关键结论
 
@@ -97,13 +97,14 @@ $$ Z_0 \uparrow \quad \text{when} \quad h \uparrow $$
 
 ![图 7-6 - 跨分割 TDR 响应](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/ch7_ch8/fig7-6_cross_split_tdr.png)
 
-> **图 7-6 分析**：无分割时信号上升沿陡峭，阻抗变化缓和；有分割时出现明显的阻抗 "台阶" 变化，导致显著反射和过冲。当信号上升时间很短(如 50 ps)时，反射幅度非常大。
+> **读图**：TDR 响应对比——无分割时阻抗平稳上升（蓝线），有分割时阻抗出现明显台阶+过冲（红线），对应信号跨过电源/地分割线时的反射。
+和过冲。当信号上升时间很短(如 50 ps)时，反射幅度非常大。
 
 ### 图 7-7：不同上升时间下跨分割的影响
 
 ![图 7-7 - 不同 $T_r$ 下跨分割的影响](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/ch7_ch8/fig7-7_rise_time_split.png)
 
-> **图 7-7 分析**：当信号上升时间较长(如 500 ps)时，跨分割引起的反射较小；当上升时间很短(如 50 ps)时，反射响应非常强——这就是高速信号(10 Gbps+)跨分割不能忽略的原因。
+> **读图**：三条曲线对应Tr=500ps/100ps/50ps。Tr越短，跨分割后反射振铃越剧烈——高速信号必须避免跨分割。
 
 ### 三方面后果
 
@@ -148,19 +149,19 @@ $$ Z_0 \uparrow \quad \text{when} \quad h \uparrow $$
 
 ![图 7-10 - 残桩长度对阻抗的影响](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/ch7_ch8/fig7-10_via_stub.png)
 
-> **图 7-10 分析**：残桩越长，阻抗突变越大，高频下阻抗波动剧烈。残桩 = 0 mil 时阻抗最平稳；残桩 = 80 mil 时出现明显的阻抗台阶。
+> **读图**：残桩越长，阻抗台阶越深，并伴随谐振引起的阻抗波动。残桩=0mil 时阻抗曲线几乎平坦，残桩=80mil 时出现明显的 Z 跳变和谐振凹坑。
 
 ### 图 7-11：反焊盘直径对过孔阻抗的影响
 
 ![图 7-11 - 反焊盘直径对阻抗的影响](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/ch7_ch8/fig7-11_antipad.png)
 
-> **图 7-11 分析**：反焊盘直径越大，过孔阻抗越高。改变反焊盘大小是调整过孔阻抗的重要手段。
+> **读图**：反焊盘直径从 10 mil 增大到 40 mil，过孔阻抗整体上移。改变反焊盘尺寸是调整过孔阻抗的常用手段。
 
 ### 图 7-13：残桩对插入损耗的影响
 
 ![图 7-13 - 残桩对 $S_{21}$ 插入损耗的影响](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/ch7_ch8/fig7-13_stub_insertion_loss.png)
 
-> **图 7-13 分析**：残桩 = 0 mil 时，插入损耗在高频下仍然平坦；残桩 = 80 mil 时，10 GHz 以上插入损耗急剧增大——这就是 10 Gbps+ 信号必须背钻的根本原因。
+> **读图**：无残桩时 S21 插入损耗高频平坦（蓝线）；残桩=80mil 时 10GHz 以上急剧衰减，并出现谐振陷波（红线）。这就是背钻去残桩的必要性。
 
 ### 工程最佳实践
 
@@ -205,7 +206,7 @@ $$ V_{diff} = V_+ - V_- $$
 
 ![图 8-1 - 差分信号传输基本结构](https://raw.githubusercontent.com/tt1431/hardware-study-plan/main/assets/ch7_ch8/fig8-1_differential_basics.png)
 
-> **图 8-1 说明**：典型的差分传输结构， $V_+$ 和 $V_-$ 关于地(电源平面)对称。
+> **读图**：上方为差分对侧视图(D+/D-+GND)，下方为波形——V+和V-反相跳变，Vdiff保持0.6V摆幅，Vcomm恒定1.25V。
 > 例如 $V_+ = 1.55$ V， $V_- = 0.95$ V，则：
 > - $V_{diff} = 1.55 - 0.95 = 0.6$ V(差模电压)
 > - $V_{comm} = (1.55 + 0.95) / 2 = 1.25$ V(共模电压)
